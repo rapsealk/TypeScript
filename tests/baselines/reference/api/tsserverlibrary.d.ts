@@ -6427,6 +6427,7 @@ declare namespace ts {
         kindModifiers?: string;
         sortText: string;
         insertText?: string;
+        filterText?: string;
         isSnippet?: true;
         /**
          * An optional span that indicates the text to be replaced by this completion item.
@@ -8631,6 +8632,10 @@ declare namespace ts.server.protocol {
          * coupled with `replacementSpan` to replace a dotted access with a bracket access.
          */
         insertText?: string;
+        /**
+         * A string that should be used when filtering a set of completion items.
+         */
+        filterText?: string;
         /**
          * `insertText` should be interpreted as a snippet if true.
          */
