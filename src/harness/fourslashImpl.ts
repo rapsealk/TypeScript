@@ -962,6 +962,9 @@ namespace FourSlash {
             if (actual.insertText !== expected.insertText) {
                 this.raiseError(`Completion insert text did not match: ${showTextDiff(expected.insertText || "", actual.insertText || "")}`);
             }
+            if (actual.filterText !== expected.filterText) {
+                this.raiseError(`Completion filter text did not match: ${showTextDiff(expected.filterText || "", actual.filterText || "")}`);
+            }
             const convertedReplacementSpan = expected.replacementSpan && ts.createTextSpanFromRange(expected.replacementSpan);
             if (convertedReplacementSpan?.length) {
                 try {

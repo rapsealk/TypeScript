@@ -704,6 +704,7 @@ namespace ts.Completions {
         let source = getSourceFromOrigin(origin);
         let sourceDisplay;
         let hasAction;
+        let filterText;
 
         const typeChecker = program.getTypeChecker();
         const insertQuestionDot = origin && originIsNullableMember(origin);
@@ -768,7 +769,7 @@ namespace ts.Completions {
             completionKind === CompletionKind.MemberLike &&
             isClassLikeMemberCompletion(symbol, location)) {
             let importAdder;
-            ({ insertText, isSnippet, importAdder, replacementSpan } = getEntryForMemberCompletion(host, program, options, preferences, name, symbol, location, contextToken, formatContext));
+            ({ insertText, isSnippet, importAdder, replacementSpan, filterText } = getEntryForMemberCompletion(host, program, options, preferences, name, symbol, location, contextToken, formatContext));
             if (importAdder?.hasFixes()) {
                 hasAction = true;
                 source = CompletionSource.ClassMemberSnippet;
@@ -827,6 +828,7 @@ namespace ts.Completions {
             hasAction: hasAction ? true : undefined,
             isRecommended: isRecommendedCompletionMatch(symbol, recommendedCompletion, typeChecker) || undefined,
             insertText,
+            filterText,
             replacementSpan,
             sourceDisplay,
             isSnippet,
@@ -894,7 +896,7 @@ namespace ts.Completions {
         location: Node,
         contextToken: Node | undefined,
         formatContext: formatting.FormatContext | undefined,
-    ): { insertText: string, isSnippet?: true, importAdder?: codefix.ImportAdder, replacementSpan?: TextSpan } {
+    ): { insertText: string, isSnippet?: true, importAdder?: codefix.ImportAdder, replacementSpan?: TextSpan, filterText?: string } {
         const classLikeDeclaration = findAncestor(location, isClassLike);
         if (!classLikeDeclaration) {
             return { insertText: name };
@@ -903,6 +905,7 @@ namespace ts.Completions {
         let isSnippet: true | undefined;
         let replacementSpan: TextSpan | undefined;
         let insertText: string = name;
+        const filterText = name;
 
         const checker = program.getTypeChecker();
         const sourceFile = location.getSourceFile();
@@ -976,8 +979,9 @@ namespace ts.Completions {
 
         if (completionNodes.length) {
             replacementSpan = modifiersSpan;
-             // If we have access to formatting settings, we print the nodes using the emitter,
-             // and then format the printed text.
+
+            // If we have access to formatting settings, we print the nodes using the emitter,
+            // and then format the printed text.
             if (formatContext) {
                 const syntheticFile = {
                     text: printer.printSnippetList(
@@ -1010,7 +1014,7 @@ namespace ts.Completions {
             }
         }
 
-        return { insertText, isSnippet, importAdder, replacementSpan };
+        return { insertText, isSnippet, importAdder, replacementSpan, filterText };
     }
 
     function getPresentModifiers(contextToken: Node | undefined): { modifiers: ModifierFlags, span?: TextSpan } {
