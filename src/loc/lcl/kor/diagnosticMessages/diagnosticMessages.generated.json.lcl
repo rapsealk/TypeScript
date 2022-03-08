@@ -622,7 +622,7 @@
         <Str Cat="Text">
           <Val><![CDATA[A promise must have a 'then' method.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[프라미스에는 'then' 메서드가 있어야 합니다.]]></Val>
+            <Val><![CDATA['Promise'에는 'then' 메서드가 있어야 합니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -12685,7 +12685,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The first parameter of the 'then' method of a promise must be a callback.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[프라미스에서 'then' 메서드의 첫 번째 매개 변수는 콜백이어야 합니다.]]></Val>
+            <Val><![CDATA['Promise'에서 'then' 메서드의 첫 번째 매개 변수는 콜백이어야 합니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -13075,7 +13075,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The return type of an async function must either be a valid promise or must not contain a callable 'then' member.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[비동기 함수의 반환 형식은 유효한 프라미스여야 하거나 호출 가능 'then' 멤버를 포함하지 않아야 합니다.]]></Val>
+            <Val><![CDATA[비동기 함수의 반환 형식은 유효한 'Promise'여야 하거나 호출 가능 'then' 멤버를 포함하지 않아야 합니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -13258,7 +13258,7 @@
         <Str Cat="Text">
           <Val><![CDATA[The type returned by the '{0}()' method of an async iterator must be a promise for a type with a 'value' property.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[비동기 반복기의 '{0}()' 메서드에서 반환하는 형식은 'value' 속성이 있는 형식에 대한 프라미스여야 합니다.]]></Val>
+            <Val><![CDATA[비동기 반복기의 '{0}()' 메서드에서 반환하는 형식은 'value' 속성이 있는 형식에 대한 'Promise'여야 합니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -14203,7 +14203,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Type of 'await' operand must either be a valid promise or must not contain a callable 'then' member.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA['await' 형식의 피연산자는 유효한 프라미스여야 하거나 호출 가능 'then' 멤버를 포함하지 않아야 합니다.]]></Val>
+            <Val><![CDATA['await' 형식의 피연산자는 유효한 'Promise'여야 하거나 호출 가능 'then' 멤버를 포함하지 않아야 합니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -14221,7 +14221,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Type of iterated elements of a 'yield*' operand must either be a valid promise or must not contain a callable 'then' member.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA['yield*'의 반복되는 요소 형식의 피연산자는 유효한 프라미스여야 하거나 호출 가능 'then' 멤버를 포함하지 않아야 합니다.]]></Val>
+            <Val><![CDATA['yield*'의 반복되는 요소 형식의 피연산자는 유효한 'Promise'여야 하거나 호출 가능 'then' 멤버를 포함하지 않아야 합니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
@@ -14239,7 +14239,7 @@
         <Str Cat="Text">
           <Val><![CDATA[Type of 'yield' operand in an async generator must either be a valid promise or must not contain a callable 'then' member.]]></Val>
           <Tgt Cat="Text" Stat="Loc" Orig="New">
-            <Val><![CDATA[비동기 생성기에 있는 'yield' 형식의 피연산자는 유효한 프라미스여야 하거나 호출 가능 'then' 멤버를 포함하지 않아야 합니다.]]></Val>
+            <Val><![CDATA[비동기 생성기에 있는 'yield' 형식의 피연산자는 유효한 'Promise'여야 하거나 호출 가능 'then' 멤버를 포함하지 않아야 합니다.]]></Val>
           </Tgt>
         </Str>
         <Disp Icon="Str" />
